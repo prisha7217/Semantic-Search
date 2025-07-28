@@ -1,7 +1,6 @@
 import streamlit as st
 import pdfplumber
 import docx
-from sentence_transformers import SentenceTransformer
 from nltk.tokenize import sent_tokenize
 from sentence_transformers import SentenceTransformer
 import torch
