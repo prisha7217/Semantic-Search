@@ -1,0 +1,5 @@
+uploaded_docs/*
+!uploaded_docs/.gitkeep
+
+corpus.pkl
+*.pkl
