@@ -4,4 +4,3 @@ python-docx
 sentence-transformers
 nltk
 torch
-pickle
