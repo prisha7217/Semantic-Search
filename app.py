@@ -184,26 +184,19 @@ def semantic_search(query, k=5, mode="paragraph"):
             st.error("Paragraph corpus is empty. Please refresh the corpus first.")
             return []
         embeddings = paragraph_embeddings
-        texts = paragraphs
+        content = paragraphs
+        label = "Paragraph"
+        filenames = sources 
     else:
         if sentence_embeddings is None or len(sentences) == 0:
             st.error("Sentence corpus is empty. Please refresh the corpus first.")
             return []
         embeddings = sentence_embeddings
-        texts = sentences
-    
-    query_embedding = model.encode(query, convert_to_tensor=True)
-
-    if mode == "paragraph":
-        embeddings = paragraph_embeddings
-        content = paragraphs
-        label = "Paragraph"
-        filenames = sources   
-    else:
-        embeddings = sentence_embeddings
         content = sentences
         label = "Sentence"
         filenames = sources
+    
+    query_embedding = model.encode(query, convert_to_tensor=True)
 
     cosine_scores = torch.nn.functional.cosine_similarity(query_embedding, embeddings)
     top_indices = torch.topk(cosine_scores, k=k).indices
