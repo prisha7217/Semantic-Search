@@ -9,7 +9,7 @@ import os
 import re
 import pickle
 import nltk
-nltk.download('punkt')
+nltk.download('punkt_tab')
 
 
 st.title("Semantic Search")
